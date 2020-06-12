@@ -10,14 +10,26 @@ source:
 
 build:
   number: 1
-  skip: True  # [win]
 
 requirements:
   build:
+    - m2-bash  # [win]
+    - m2-coreutils  # [win]
+    - m2-diffutils  # [win]
+    - m2-gawk  # [win]
+    - m2-grep  # [win]
+    - m2-make  # [win]
+    - m2-sed  # [win]
+    - m2-which  # [win]
     - {{ compiler('c') }}  # [unix]
+    - {{ compiler('m2w64_c') }}  # [win]  
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
-    - pkg-config
+    - pkg-config  # [unix]
+    - m2w64-pkg-config  # [win]
+    - m2w64-binutils  # [win]
+    - m2w64-gcc  # [win]
+    - m2w64-tools-git  # [win]
   host:
     - python
     - cython
@@ -27,6 +39,9 @@ requirements:
     - xraylib >=4.0.0
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
+    - m2w64-binutils  # [win]
+    - m2w64-gcc  # [win]
+    - m2w64-tools-git  # [win]
   run:
     - python
     - {{ pin_compatible('numpy') }}
