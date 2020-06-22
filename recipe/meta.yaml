@@ -13,15 +13,15 @@ build:
 
 requirements:
   build:
-    - autotools_clang_conda  # [win]
     - m2-curl  # [win]
     - m2-patch  # [win]
     - m2-tar  # [win]
     - m2-bzip2  # [win]
+    - ninja  # [win]
     - {{ compiler('c') }}
     - libgomp  # [linux]
     - pkg-config  # [unix]
-    - m2-pkg-config  # [win]
+    - m2w64-pkg-config  # [win]
   host:
     - python
     - cython
@@ -29,7 +29,8 @@ requirements:
     - gsl
     - numpy
     - xraylib >=4.0.0
-    - llvm-openmp  # [osx or win]
+    - meson  # [win]
+    - llvm-openmp  # [osx]
     - libgomp  # [linux]
   run:
     - python
@@ -37,7 +38,7 @@ requirements:
     - hdf5
     - gsl
     - libopenblas
-    - llvm-openmp  # [osx or win]
+    - llvm-openmp  # [osx]
     - libgomp  # [linux]
     - xraylib >=4.0.0
     - zlib
