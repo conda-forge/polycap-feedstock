@@ -1,9 +1,5 @@
 @ECHO ON
 
-@REM remove this when 1.1 gets released
-curl -L -O https://patch-diff.githubusercontent.com/raw/PieterTack/polycap/pull/52.diff
-patch -p1 < 52.diff
-
 @REM I cannot for the life of me figure out how Cygwin/MSYS2 figures out its
 @REM root directory, which it uses to find the /etc/fstab which *sometimes*
 @REM affects the choice of the cygdrive prefix. But, regardless of *why*,

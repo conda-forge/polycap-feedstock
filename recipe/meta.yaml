@@ -1,4 +1,4 @@
-{% set version = "1.0" %}
+{% set version = "1.1" %}
 
 package:
   name: polycap
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/PieterTack/polycap/releases/download/v{{ version }}/polycap-{{ version }}.tar.gz
-  sha256: e181378eb3eb3479e87cdedc8bfb326e524999abf06b99e3a1a9528ba4f0608b
+  sha256: 4c15c260b00d1c0036df54016e646e25fcc8a333a29ab703a017bd674dadc04b
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -30,6 +30,7 @@ requirements:
     - numpy
     - xraylib >=4.0.0
     - meson  # [win]
+    - ninja  # [win]
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
   run:
@@ -50,7 +51,7 @@ test:
     - if not exist %LIBRARY_LIB%\\pkgconfig\\libpolycap.pc exit 1  # [win]
     - if not exist %LIBRARY_LIB%\\polycap.lib exit 1  # [win]
     - if not exist %LIBRARY_INC%\\polycap\\polycap.h exit 1  # [win]
-    - if not exist %LIBRARY_BIN%\\polycap-0.dll exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\\polycap-2.dll exit 1  # [win]
 
 about:
   license: GPL-3.0-or-later
