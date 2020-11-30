@@ -9,7 +9,7 @@ source:
   sha256: 4c15c260b00d1c0036df54016e646e25fcc8a333a29ab703a017bd674dadc04b
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -28,7 +28,7 @@ requirements:
     - hdf5
     - gsl
     - numpy
-    - xraylib >=4.0.0
+    - xraylib
     - meson  # [win]
     - ninja  # [win]
     - llvm-openmp  # [osx]
@@ -41,7 +41,7 @@ requirements:
     - libopenblas
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
-    - xraylib >=4.0.0
+    - {{ pin_compatible('xraylib') }}
     - zlib
 
 test:
