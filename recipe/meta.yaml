@@ -28,7 +28,7 @@ requirements:
     - hdf5
     - gsl
     - numpy
-    - xraylib >=4.0.0
+    - xraylib
     - meson  # [win]
     - ninja  # [win]
     - llvm-openmp  # [osx]
@@ -41,7 +41,7 @@ requirements:
     - libopenblas
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
-    - xraylib >=4.0.0
+    - {{ pin_compatible('xraylib') }}
     - zlib
 
 test:
