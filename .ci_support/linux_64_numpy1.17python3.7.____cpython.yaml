@@ -15,7 +15,7 @@ gsl:
 hdf5:
 - 1.10.6
 numpy:
-- '1.16'
+- '1.17'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -27,5 +27,7 @@ target_platform:
 xraylib:
 - 4.0.0
 zip_keys:
+- - cdt_name
+  - docker_image
 - - python
   - numpy
