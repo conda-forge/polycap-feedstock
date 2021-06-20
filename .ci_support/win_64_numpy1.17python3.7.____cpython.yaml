@@ -19,7 +19,7 @@ python:
 target_platform:
 - win-64
 xraylib:
-- 4.0.0
+- 4.1.0
 zip_keys:
 - - python
   - numpy
