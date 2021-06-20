@@ -30,7 +30,7 @@ set "PYTHONIOENCODING=UTF-8"
 @REM fix the env python path to match).
 @REM FOR /F "delims=" %%i IN ('cygpath.exe -m "%PYTHON%"') DO set "PYTHON_M=%%i"
 
-%PYTHON% %PREFIX%\Scripts\meson --buildtype=release --prefix=%LIBRARY_PREFIX_M% --backend=ninja -Dpython=%PYTHON% -Dbuild-documentation=false ..
+meson --buildtype=release --prefix=%LIBRARY_PREFIX_M% --backend=ninja -Dpython=%PYTHON% -Dbuild-documentation=false ..
 if errorlevel 1 exit 1
 
 ninja -v
