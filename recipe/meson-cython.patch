@@ -1,0 +1,34 @@
+From 219db11681a887fd99ce0e79036ec1adbeba5708 Mon Sep 17 00:00:00 2001
+From: Tom Schoonjans <Tom.Schoonjans@rfi.ac.uk>
+Date: Thu, 12 Aug 2021 06:22:35 +0100
+Subject: [PATCH] meson: remove cython option
+
+meson 0.59.0 introduces cython as a protected keyword, meaning that we cannot use it as an option name anymore
+---
+ meson.build       | 2 +-
+ meson_options.txt | 2 --
+ 2 files changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index abcb540..0dcf29c 100644
+--- a/meson.build
++++ b/meson.build
+@@ -183,7 +183,7 @@ if build_python_opt
+   endif
+ 
+   python_dep = python.dependency()
+-  cython = find_program(get_option('cython'), 'cython', 'cython3', 'cython-3', 'cython' + python.language_version(), 'cython-' + python.language_version(), required : false)
++  cython = find_program('cython', 'cython3', 'cython-3', 'cython' + python.language_version(), 'cython-' + python.language_version(), required : false)
+   subdir('python')
+ endif
+ 
+diff --git a/meson_options.txt b/meson_options.txt
+index de92394..cd02135 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -1,5 +1,3 @@
+ option('build-documentation', type: 'boolean', value: true, description: 'Build and install the documentation')
+ option('build-python-bindings', type: 'boolean', value: true, description: 'Build polycaps Python bindings')
+ option('python', type : 'string', value : 'python3', description: 'Python interpreter to compile bindings for')
+-option('cython', type : 'string', value : 'cython', description: 'Cython to use for generating C glue code')
+-

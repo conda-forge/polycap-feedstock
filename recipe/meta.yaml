@@ -7,9 +7,11 @@ package:
 source:
   url: https://github.com/PieterTack/polycap/releases/download/v{{ version }}/polycap-{{ version }}.tar.gz
   sha256: 4c15c260b00d1c0036df54016e646e25fcc8a333a29ab703a017bd674dadc04b
+  patches:
+    - meson-cython.patch
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   build:
@@ -20,8 +22,7 @@ requirements:
     - ninja  # [win]
     - {{ compiler('c') }}
     - libgomp  # [linux]
-    - pkg-config  # [unix]
-    - m2w64-pkg-config  # [win]
+    - pkg-config
   host:
     - python
     - cython
