@@ -15,10 +15,6 @@ build:
 
 requirements:
   build:
-    - m2-curl  # [win]
-    - m2-patch  # [win]
-    - m2-tar  # [win]
-    - m2-bzip2  # [win]
     - ninja  # [win]
     - {{ compiler('c') }}
     - libgomp  # [linux]
