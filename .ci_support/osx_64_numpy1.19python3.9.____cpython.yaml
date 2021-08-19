@@ -11,7 +11,9 @@ channel_targets:
 gsl:
 - '2.6'
 hdf5:
-- 1.10.6
+- 1.12.1
+llvm_openmp:
+- '11'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 numpy:
