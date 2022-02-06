@@ -22,7 +22,7 @@ requirements:
     - libgomp  # [linux]
     - pkg-config  # [unix]
     - m2w64-pkg-config  # [win]
-    - make # [not win]
+    - make  # [not win]
   host:
     - python
     - cython
