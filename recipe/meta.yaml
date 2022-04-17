@@ -13,13 +13,14 @@ build:
 
 requirements:
   build:
-    - m2-curl  # [win]
+    - make      # [unix]
+    - m2-curl   # [win]
     - m2-patch  # [win]
-    - m2-tar  # [win]
+    - m2-tar    # [win]
     - m2-bzip2  # [win]
-    - ninja  # [win]
+    - ninja     # [win]
     - {{ compiler('c') }}
-    - libgomp  # [linux]
+    - libgomp   # [linux]
     - pkg-config  # [unix]
     - m2w64-pkg-config  # [win]
   host:
