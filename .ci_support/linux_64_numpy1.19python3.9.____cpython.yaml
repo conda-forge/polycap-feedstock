@@ -25,7 +25,7 @@ python:
 target_platform:
 - linux-64
 xraylib:
-- 4.1.0
+- '4.1'
 zip_keys:
 - - python
   - numpy
