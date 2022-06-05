@@ -13,15 +13,16 @@ build:
 
 requirements:
   build:
-    - make      # [unix]
     - {{ compiler('c') }}
+    - meson
+    - ninja
+    - cython
     - pkg-config  # [unix]
+    # using the mingw build of pkg-config seems to be essential,
+    # as it seems to handle the broken hdf5.pc gracefully.
     - m2w64-pkg-config  # [win]
-    - meson  # [win]
-    - ninja     # [win]
   host:
     - python
-    - cython
     - hdf5
     - gsl
     - numpy
