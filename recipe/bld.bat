@@ -1,3 +1,4 @@
+setlocal EnableDelayedExpansion
 @ECHO ON
 
 @REM I cannot for the life of me figure out how Cygwin/MSYS2 figures out its
@@ -7,9 +8,6 @@
 mkdir %BUILD_PREFIX%\Library\etc
 echo none / cygdrive binary,user 0 0 >%BUILD_PREFIX%\Library\etc\fstab
 echo none /tmp usertemp binary,posix=0 0 0 >>%BUILD_PREFIX%\Library\etc\fstab
-
-mkdir forgebuild
-cd forgebuild
 
 @REM pkg-config setup
 FOR /F "delims=" %%i IN ('cygpath.exe -m "%LIBRARY_PREFIX%"') DO set "LIBRARY_PREFIX_M=%%i"
@@ -30,24 +28,33 @@ set "PYTHONIOENCODING=UTF-8"
 @REM fix the env python path to match).
 @REM FOR /F "delims=" %%i IN ('cygpath.exe -m "%PYTHON%"') DO set "PYTHON_M=%%i"
 
-meson --buildtype=release --prefix=%LIBRARY_PREFIX_M% --backend=ninja -Dpython=%PYTHON% -Dbuild-documentation=false ..
+:: meson options
+set ^"MESON_OPTIONS=^
+  --prefix="%LIBRARY_PREFIX_M%" ^
+  --default-library=shared ^
+  --buildtype=release ^
+  --backend=ninja ^
+  -Dpython="%PYTHON%" ^
+  -Dpython.platlibdir="%SP_DIR%" ^
+  -Dpython.purelibdir="%SP_DIR%" ^
+  -Dbuild-documentation=false ^
+ ^"
+
+:: configure build using meson
+meson setup builddir !MESON_OPTIONS!
 if errorlevel 1 exit 1
 
-ninja -v
+:: print results of build configuration
+meson configure builddir
 if errorlevel 1 exit 1
 
-@REM ninja test
-@REM if errorlevel 1 exit 1
+ninja -v -C builddir -j %CPU_COUNT%
+if errorlevel 1 exit 1
 
-ninja install
+ninja -C builddir install -j %CPU_COUNT%
 if errorlevel 1 exit 1
 
 del %LIBRARY_PREFIX%\bin\*.pdb
 
 @REM For some reason conda-build decides that the meson files in Scripts are new?
 del %PREFIX%\Scripts\meson* %PREFIX%\Scripts\wraptool*
-
-@REM Meson doesn't put the Python files in the right place.
-cd %LIBRARY_PREFIX%\lib\python*
-cd site-packages
-move polycap.* %PREFIX%\lib\site-packages\
