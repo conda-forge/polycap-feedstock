@@ -14,15 +14,11 @@ build:
 requirements:
   build:
     - make      # [unix]
-    - m2-curl   # [win]
-    - m2-patch  # [win]
-    - m2-tar    # [win]
-    - m2-bzip2  # [win]
-    - ninja     # [win]
     - {{ compiler('c') }}
-    - libgomp   # [linux]
     - pkg-config  # [unix]
     - m2w64-pkg-config  # [win]
+    - meson  # [win]
+    - ninja     # [win]
   host:
     - python
     - cython
@@ -30,8 +26,6 @@ requirements:
     - gsl
     - numpy
     - xraylib
-    - meson  # [win]
-    - ninja  # [win]
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
   run:
