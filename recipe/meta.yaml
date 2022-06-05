@@ -9,28 +9,24 @@ source:
   sha256: 4c15c260b00d1c0036df54016e646e25fcc8a333a29ab703a017bd674dadc04b
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:
-    - m2-curl  # [win]
-    - m2-patch  # [win]
-    - m2-tar  # [win]
-    - m2-bzip2  # [win]
-    - ninja  # [win]
     - {{ compiler('c') }}
-    - libgomp  # [linux]
+    - meson
+    - ninja
+    - cython
     - pkg-config  # [unix]
+    # using the mingw build of pkg-config seems to be essential,
+    # as it seems to handle the broken hdf5.pc gracefully.
     - m2w64-pkg-config  # [win]
   host:
     - python
-    - cython
     - hdf5
     - gsl
     - numpy
     - xraylib
-    - meson  # [win]
-    - ninja  # [win]
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
   run:
