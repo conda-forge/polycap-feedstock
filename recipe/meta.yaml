@@ -27,6 +27,7 @@ requirements:
     - gsl
     - numpy
     - xraylib
+    - zlib
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
   run:
@@ -38,7 +39,7 @@ requirements:
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
     - {{ pin_compatible('xraylib') }}
-    - zlib
+    - libzlib
 
 test:
   imports:
