@@ -9,7 +9,7 @@ source:
   sha256: 4c15c260b00d1c0036df54016e646e25fcc8a333a29ab703a017bd674dadc04b
 
 build:
-  number: 5
+  number: 6
 
 requirements:
   build:
@@ -27,6 +27,7 @@ requirements:
     - gsl
     - numpy
     - xraylib
+    - zlib
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
   run:
@@ -38,7 +39,7 @@ requirements:
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
     - {{ pin_compatible('xraylib') }}
-    - zlib
+    - libzlib
 
 test:
   imports:
