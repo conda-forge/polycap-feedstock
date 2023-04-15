@@ -1,15 +1,15 @@
-{% set version = "1.1" %}
+{% set version = "1.2" %}
 
 package:
   name: polycap
   version: {{ version }}
 
 source:
-  url: https://github.com/PieterTack/polycap/releases/download/v{{ version }}/polycap-{{ version }}.tar.gz
-  sha256: 4c15c260b00d1c0036df54016e646e25fcc8a333a29ab703a017bd674dadc04b
+  url: https://github.com/PieterTack/polycap/releases/download/v{{ version }}/polycap-{{ version }}.tar.xz
+  sha256: 6e08a8f5ae29f7948a10aa75806bbf11a401ac735de903d4c574b22c25b18dce
 
 build:
-  number: 6
+  number: 0
 
 requirements:
   build:
