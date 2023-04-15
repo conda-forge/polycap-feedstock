@@ -11,7 +11,7 @@ channel_targets:
 gsl:
 - '2.7'
 hdf5:
-- 1.12.2
+- 1.14.0
 llvm_openmp:
 - '14'
 macos_machine:
