@@ -3,6 +3,7 @@ setlocal EnableDelayedExpansion
 
 @REM pkg-config setup
 set "PKG_CONFIG_PATH=%LIBRARY_PREFIX%\lib\pkgconfig;%LIBRARY_PREFIX%\share\pkgconfig"
+set "CPPFLAGS=-DH5_BUILT_AS_DYNAMIC_LIB"
 
 :: meson options
 set ^"MESON_OPTIONS=^
