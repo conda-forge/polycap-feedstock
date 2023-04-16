@@ -16,6 +16,8 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
   mv $BUILD_PREFIX/bin/cython $BUILD_PREFIX/bin/cython.bak
   echo '#!/usr/bin/env python' > $BUILD_PREFIX/bin/cython
   cat $BUILD_PREFIX/bin/cython.bak >> $BUILD_PREFIX/bin/cython
+
+  cat $BUILD_PREFIX/meson_cross_file.txt
 fi
 
 if [ -z "$MESON_ARGS" ]; then
