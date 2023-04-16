@@ -25,7 +25,7 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
   echo "[binaries]" > "${BUILD_PREFIX}/meson_native_file.txt"
   echo "h5cc = '${PREFIX}/bin/h5cc'" >> "${BUILD_PREFIX}/meson_native_file.txt"
 
-  MESON_ARGS+=" --native-file ${BUILD_PREFIX}/meson_native_file.txt"
+  MESON_ARGS+=" --cross-file ${BUILD_PREFIX}/meson_native_file.txt"
 fi
 
 mkdir build
