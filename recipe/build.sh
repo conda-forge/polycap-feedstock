@@ -21,11 +21,12 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
   mv $BUILD_PREFIX/bin/cython $BUILD_PREFIX/bin/cython.bak
   echo '#!/usr/bin/env python' > $BUILD_PREFIX/bin/cython
   cat $BUILD_PREFIX/bin/cython.bak >> $BUILD_PREFIX/bin/cython
+  chmod a+x $BUILD_PREFIX/bin/cython
 
-  echo "[binaries]" > "${BUILD_PREFIX}/meson_native_file.txt"
-  echo "h5cc = '${PREFIX}/bin/h5cc'" >> "${BUILD_PREFIX}/meson_native_file.txt"
+  echo "[binaries]" > "${BUILD_PREFIX}/meson_cross_extra_file.txt"
+  echo "h5cc = '${PREFIX}/bin/h5cc'" >> "${BUILD_PREFIX}/meson_cross_extra_file.txt"
 
-  MESON_ARGS+=" --cross-file ${BUILD_PREFIX}/meson_native_file.txt"
+  MESON_ARGS+=" --cross-file ${BUILD_PREFIX}/meson_cross_extra_file.txt"
 fi
 
 mkdir build
