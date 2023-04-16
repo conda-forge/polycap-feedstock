@@ -16,7 +16,6 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
-    - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - meson
     - ninja
@@ -31,7 +30,6 @@ requirements:
     - gsl
     - numpy
     - xraylib
-    - zlib
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
     - zlib
@@ -44,7 +42,6 @@ requirements:
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
     - {{ pin_compatible('xraylib') }}
-    - libzlib
 
 test:
   imports:
