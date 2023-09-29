@@ -33,6 +33,7 @@ requirements:
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
     - zlib
+    - setuptools
   run:
     - python
     - {{ pin_compatible('numpy') }}
