@@ -1,5 +1,7 @@
 c_compiler:
 - vs2019
+c_stdlib:
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
@@ -7,7 +9,7 @@ channel_targets:
 gsl:
 - '2.7'
 hdf5:
-- 1.14.2
+- 1.14.3
 numpy:
 - '1.23'
 pin_run_as_build:
@@ -23,6 +25,5 @@ xraylib:
 zip_keys:
 - - python
   - numpy
-  - channel_sources
 zlib:
 - '1.2'

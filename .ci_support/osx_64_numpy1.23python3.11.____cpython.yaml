@@ -1,9 +1,13 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
+- '10.13'
 c_compiler:
 - clang
 c_compiler_version:
-- '15'
+- '16'
+c_stdlib:
+- macosx_deployment_target
+c_stdlib_version:
+- '10.13'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -11,9 +15,9 @@ channel_targets:
 gsl:
 - '2.7'
 hdf5:
-- 1.14.2
+- 1.14.3
 llvm_openmp:
-- '15'
+- '16'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 numpy:
@@ -31,6 +35,5 @@ xraylib:
 zip_keys:
 - - python
   - numpy
-  - channel_sources
 zlib:
 - '1.2'
