@@ -9,7 +9,7 @@ source:
   sha256: 6e08a8f5ae29f7948a10aa75806bbf11a401ac735de903d4c574b22c25b18dce
 
 build:
-  number: 4
+  number: 5
 
 requirements:
   build:
@@ -17,6 +17,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - meson
     - ninja
     - cython
@@ -36,7 +37,6 @@ requirements:
     - setuptools
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - hdf5
     - gsl
     - libopenblas
