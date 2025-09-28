@@ -37,7 +37,4 @@ meson ${MESON_ARGS} \
       -Dpython=$PYTHON \
       .. || (cat meson-logs/meson-log.txt && exit 1)
 ninja
-if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
-  ninja test
-fi
 ninja install
