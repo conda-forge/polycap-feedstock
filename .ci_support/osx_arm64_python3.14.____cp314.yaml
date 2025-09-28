@@ -33,7 +33,7 @@ python:
 target_platform:
 - osx-arm64
 xraylib:
-- '4.1'
+- '4.2'
 zip_keys:
 - - python
   - channel_sources
