@@ -2,14 +2,14 @@
 
 package:
   name: polycap
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://github.com/PieterTack/polycap/releases/download/v{{ version }}/polycap-{{ version }}.tar.xz
   sha256: 6e08a8f5ae29f7948a10aa75806bbf11a401ac735de903d4c574b22c25b18dce
 
 build:
-  number: 10
+  number: 11
 
 requirements:
   build:
