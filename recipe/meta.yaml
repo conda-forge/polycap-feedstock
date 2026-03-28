@@ -2,7 +2,7 @@
 
 package:
   name: polycap
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://github.com/PieterTack/polycap/releases/download/v{{ version }}/polycap-{{ version }}.tar.xz
